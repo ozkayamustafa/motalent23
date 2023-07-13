@@ -25,15 +25,18 @@ DATA lt_tweet_modify TYPE TABLE OF zot_16_t_twitter.
 START-OF-SELECTION.
 
   IF p_id = space AND p_tat EQ 'X' OR p_id = space AND p_tcha EQ 'X' OR p_id = space AND p_tdel EQ 'X'.
-        cl_demo_output=>display( 'ID BOŞ KALAMAZ' ).
+    cl_demo_output=>display( 'ID BOŞ KALAMAZ' ).
   ELSE.
     CASE 'X'.
       WHEN p_tat.
-        APPEND VALUE #(
+        TRY.
+            APPEND VALUE #(
       id = p_id
       tweet = p_twit ) TO lt_tweet_modify.
-        MODIFY zot_16_t_twitter FROM TABLE lt_tweet_modify.
-        COMMIT WORK AND WAIT.
+            INSERT zot_16_t_twitter  FROM TABLE lt_tweet_modify.
+          CATCH cx_sy_open_sql_db.
+            cl_demo_output=>display( 'Aynı ID Tweet var. ' ).
+        ENDTRY.
       WHEN p_tcha.
         UPDATE zot_16_t_twitter SET tweet = p_twit
      WHERE id = p_id.
