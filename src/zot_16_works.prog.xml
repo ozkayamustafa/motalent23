@@ -3,7 +3,7 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <PROGDIR>
-    <NAME>ZOT_16_P_ZMN</NAME>
+    <NAME>ZOT_16_WORKS</NAME>
     <DBAPL>S</DBAPL>
     <SUBC>1</SUBC>
     <FIXPT>X</FIXPT>
@@ -13,14 +13,8 @@
    <TPOOL>
     <item>
      <ID>R</ID>
-     <ENTRY>Zaman Hesaplama</ENTRY>
-     <LENGTH>15</LENGTH>
-    </item>
-    <item>
-     <ID>S</ID>
-     <KEY>S_ID</KEY>
-     <ENTRY> Tablo Id Değer Giriniz</ENTRY>
-     <LENGTH>31</LENGTH>
+     <ENTRY>Örnekler Yapma</ENTRY>
+     <LENGTH>14</LENGTH>
     </item>
    </TPOOL>
   </asx:values>

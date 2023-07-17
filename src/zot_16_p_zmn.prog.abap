@@ -71,8 +71,7 @@ START-OF-SELECTION.
     IF sy-index MOD 6 = 0.
       NEW-LINE.
     ENDIF.
-*    lv_years  = lv_years  - 1.
-*    lv_months  = lv_months - 1.
+
     IF lv_years NE 0.
       WRITE: |{ lv_years  } YIL|.
     ENDIF.
