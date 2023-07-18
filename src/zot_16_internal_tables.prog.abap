@@ -76,6 +76,7 @@ TYPES: BEGIN OF lty_collect,
          matkl TYPE zot_00_t_materia-matkl,
          menge TYPE zot_00_t_materia-menge,
        END OF lty_collect.
+
 DATA gt_material_collect TYPE TABLE OF lty_collect. " Dördüncü gt_material  aynı matkl olanları  menge alanlarını burada toplayıp buraya atıcam.
 DATA gs_material_collect TYPE lty_collect.
 
