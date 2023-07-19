@@ -19,6 +19,7 @@ TYPES : BEGIN OF gty_eban,  " Eban type
           matnr TYPE eban-matnr,
           menge TYPE eban-menge,
           meins TYPE eban-meins,
+          color TYPE lvc_t_scol,
         END OF gty_eban.
 
 DATA : gt_alv_eban TYPE TABLE OF gty_eban.
@@ -29,6 +30,7 @@ TYPES : BEGIN OF gty_ekpo,    " Ekpo type
           matnr TYPE ekpo-matnr,
           menge TYPE ekpo-menge,
           meins TYPE ekpo-meins,
+          color TYPE lvc_t_scol,
         END OF gty_ekpo.
 
 DATA : gt_alv_ekpo TYPE TABLE OF gty_ekpo.
@@ -55,44 +57,81 @@ START-OF-SELECTION.
          INTO CORRESPONDING FIELDS OF TABLE @gt_alv_ekpo.
 
 
+  FIELD-SYMBOLS: <lwa_sflight>   TYPE gty_eban,
+                 <lwa_ekpofligh> TYPE gty_ekpo.
+  DATA: ls_color      TYPE lvc_s_scol,
+        ls_color_ekpo TYPE lvc_s_scol.
 
+  LOOP AT gt_alv_eban ASSIGNING <lwa_sflight>.
+    IF <lwa_sflight>-menge > 10.
+      ls_color-color-col = 5.
+      ls_color-color-int = 0.
+      ls_color-color-inv = 0.
+      APPEND ls_color TO <lwa_sflight>-color.
+    ENDIF.
+  ENDLOOP.
+
+  LOOP AT gt_alv_ekpo ASSIGNING <lwa_ekpofligh>.
+    IF <lwa_ekpofligh>-menge > 10.
+      ls_color_ekpo-color-col = 5.
+      ls_color_ekpo-color-int = 0.
+      ls_color_ekpo-color-inv = 0.
+      APPEND ls_color_ekpo TO <lwa_ekpofligh>-color.
+    ENDIF.
+  ENDLOOP.
 
 END-OF-SELECTION.
 
- CASE abap_true.
+  CASE abap_true.
     WHEN p_sat.
 
-        cl_salv_table=>factory(
-             IMPORTING
-                r_salv_table = go_alv
-              CHANGING
-                  t_table    = gt_alv_eban
-         ).
+      cl_salv_table=>factory(
+        IMPORTING
+          r_salv_table = go_alv
+        CHANGING
+          t_table      = gt_alv_eban
+      ).
 
-        DATA lo_display TYPE REF TO cl_salv_display_settings.
+      DATA lo_display TYPE REF TO cl_salv_display_settings.
 
-        lo_display = go_alv->get_display_settings( ).
-        lo_display->set_list_header( 'SAT RAPOR' ).
-        lo_display->set_striped_pattern( value = 'X' ).
+      lo_display = go_alv->get_display_settings( ).
+      lo_display->set_list_header( 'SAT RAPOR' ).
+      lo_display->set_striped_pattern( value = 'X' ).
 
-        DATA lo_func TYPE REF TO cl_salv_functions.
-        lo_func = go_alv->get_functions( ).
-        lo_func->set_all( abap_true ).
+      DATA lo_func TYPE REF TO cl_salv_functions.
+      lo_func = go_alv->get_functions( ).
+      lo_func->set_all( abap_true ).
 
-        DATA: lo_header TYPE REF TO cl_salv_form_layout_grid,
-             lo_h_label TYPE REF TO cl_salv_form_label,
-             lo_h_flow TYPE REF TO cl_salv_form_layout_flow.
+      DATA: lo_header  TYPE REF TO cl_salv_form_layout_grid,
+            lo_h_label TYPE REF TO cl_salv_form_label,
+            lo_h_flow  TYPE REF TO cl_salv_form_layout_flow.
 
-        CREATE OBJECT lo_header.
-         lo_h_label = lo_header->create_label( row = 1 column = 1 ).
-         lo_h_label->set_text( value = 'SAT RAPOR' ).
-         lo_h_flow = lo_header->create_flow( row = 2 column = 1 ).
-         lo_h_flow->create_text(
-                text = sy-uname
-          ).
+      CREATE OBJECT lo_header.
+      lo_h_label = lo_header->create_label( row = 1 column = 1 ).
+      lo_h_label->set_text( value = 'SAT RAPOR' ).
+      lo_h_flow = lo_header->create_flow( row = 2 column = 1 ).
+      lo_h_flow->create_text(
+        text = sy-uname
+      ).
+       lo_h_flow->create_text(
+        text = sy-uzeit
+      ).
 
-        go_alv->set_top_of_list( lo_header ).
-        go_alv->display( ).
+       lo_h_flow->create_text(
+        text = sy-datlo
+      ).
+
+      go_alv->set_top_of_list( lo_header ).
+
+
+      DATA  lo_columns  TYPE REF TO cl_salv_columns_table.
+
+      go_alv->get_columns( RECEIVING value = lo_columns ).
+      TRY.
+          lo_columns->set_color_column( EXPORTING value = 'COLOR' ).
+        CATCH cx_salv_data_error.
+      ENDTRY.
+      go_alv->display( ).
 
 
 *      CALL FUNCTION 'REUSE_ALV_FIELDCATALOG_MERGE'
@@ -122,36 +161,54 @@ END-OF-SELECTION.
 
 ********************************************************************** EKPO ALV
     WHEN p_sas.
-        cl_salv_table=>factory(
-             IMPORTING
-                r_salv_table = go_alv
-              CHANGING
-                  t_table    = gt_alv_ekpo
-         ).
+      cl_salv_table=>factory(
+        IMPORTING
+          r_salv_table = go_alv
+        CHANGING
+          t_table      = gt_alv_ekpo
+      ).
 
-        DATA loo_display TYPE REF TO cl_salv_display_settings.
+      DATA loo_display TYPE REF TO cl_salv_display_settings.
 
-        lo_display = go_alv->get_display_settings( ).
-        lo_display->set_list_header( 'SAS RAPOR' ).
-        lo_display->set_striped_pattern( value = 'X' ).
+      lo_display = go_alv->get_display_settings( ).
+      lo_display->set_list_header( 'SAS RAPOR' ).
+      lo_display->set_striped_pattern( value = 'X' ).
 
-        DATA loo_func TYPE REF TO cl_salv_functions.
-        lo_func = go_alv->get_functions( ).
-        lo_func->set_all( abap_true ).
+      DATA loo_func TYPE REF TO cl_salv_functions.
+      lo_func = go_alv->get_functions( ).
+      lo_func->set_all( abap_true ).
 
-        DATA: loo_header TYPE REF TO cl_salv_form_layout_grid,
-             loo_h_label TYPE REF TO cl_salv_form_label,
-             loo_h_flow TYPE REF TO cl_salv_form_layout_flow.
+      DATA: loo_header  TYPE REF TO cl_salv_form_layout_grid,
+            loo_h_label TYPE REF TO cl_salv_form_label,
+            loo_h_flow  TYPE REF TO cl_salv_form_layout_flow.
 
-        CREATE OBJECT lo_header.
-         lo_h_label = lo_header->create_label( row = 1 column = 1 ).
-         lo_h_label->set_text( value = 'SAS RAPOR' ).
-         lo_h_flow = lo_header->create_flow( row = 2 column = 1 ).
-         lo_h_flow->create_text(
-                text = sy-uname
-          ).
+      CREATE OBJECT lo_header.
+      lo_h_label = lo_header->create_label( row = 1 column = 1 ).
+      lo_h_label->set_text( value = 'SAS RAPOR' ).
+      lo_h_flow = lo_header->create_flow( row = 2 column = 1 ).
+      lo_h_flow->create_text(
+        text = sy-uname
+      ).
+      lo_h_flow->create_text(
+        text = sy-uzeit
+      ).
 
-        go_alv->set_top_of_list( lo_header ).
-        go_alv->display( ).
+       lo_h_flow->create_text(
+        text = sy-datlo
+      ).
+
+
+      go_alv->set_top_of_list( lo_header ).
+
+
+      DATA  lo_columns_ekpo  TYPE REF TO cl_salv_columns_table.
+
+      go_alv->get_columns( RECEIVING value = lo_columns_ekpo ).
+      TRY.
+          lo_columns_ekpo->set_color_column( EXPORTING value = 'COLOR' ).
+        CATCH cx_salv_data_error.
+      ENDTRY.
+
+      go_alv->display( ).
 
   ENDCASE.
