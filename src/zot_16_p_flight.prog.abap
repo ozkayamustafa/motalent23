@@ -6,7 +6,11 @@
 REPORT ZOT_16_P_FLIGHT.
 
 
+SELECTION-SCREEN BEGIN OF BLOCK b1 WITH FRAME TITLE TEXT-001.
 
+PARAMETERS p_barcod TYPE char10 OBLIGATORY.
+
+ SELECTION-SCREEN END OF BLOCK b1.
 
 
 
@@ -49,7 +53,7 @@ REPORT ZOT_16_P_FLIGHT.
   CALL FUNCTION l_fmname
     EXPORTING
       /1bcdwb/docparams  = l_docparams
-      br_barkod          = '123456789'
+      br_barkod          = p_barcod
     IMPORTING
       /1bcdwb/formoutput = l_formoutput
     EXCEPTIONS
