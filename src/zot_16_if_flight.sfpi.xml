@@ -97,19 +97,24 @@
      <OUTPUT_PARAMETERS/>
      <INITIALIZATION>
       <FPCLINE/>
-      <FPCLINE>SELECT</FPCLINE>
-      <FPCLINE>    carrid,</FPCLINE>
-      <FPCLINE>    carrname,</FPCLINE>
-      <FPCLINE>    currcode,</FPCLINE>
-      <FPCLINE>    url</FPCLINE>
-      <FPCLINE>    FROM scarr INTO TABLE @gt_scarr.</FPCLINE>
       <FPCLINE/>
-      <FPCLINE>gt_total = 0.</FPCLINE>
-      <FPCLINE>LOOP AT gt_scarr INTO DATA(ls_scarr).</FPCLINE>
-      <FPCLINE>  IF ls_scarr-currcode EQ &apos;USD&apos;.</FPCLINE>
-      <FPCLINE>    gt_total = gt_total + 1.</FPCLINE>
-      <FPCLINE>  ENDIF.</FPCLINE>
-      <FPCLINE>ENDLOOP.</FPCLINE>
+      <FPCLINE/>
+      <FPCLINE>  DO 5 TIMES.</FPCLINE>
+      <FPCLINE>    SELECT</FPCLINE>
+      <FPCLINE>  carrid,</FPCLINE>
+      <FPCLINE>  carrname,</FPCLINE>
+      <FPCLINE>  currcode,</FPCLINE>
+      <FPCLINE>  url</FPCLINE>
+      <FPCLINE>  FROM scarr APPENDING TABLE @gt_scarr.</FPCLINE>
+      <FPCLINE/>
+      <FPCLINE>  ENDDO.</FPCLINE>
+      <FPCLINE/>
+      <FPCLINE>  gt_total = 0.</FPCLINE>
+      <FPCLINE>  LOOP AT gt_scarr INTO DATA(ls_scarr).</FPCLINE>
+      <FPCLINE>    IF ls_scarr-currcode EQ &apos;USD&apos;.</FPCLINE>
+      <FPCLINE>      gt_total = gt_total + 1.</FPCLINE>
+      <FPCLINE>    ENDIF.</FPCLINE>
+      <FPCLINE>  ENDLOOP.</FPCLINE>
      </INITIALIZATION>
      <FORMS/>
     </CL_FP_CODING>
