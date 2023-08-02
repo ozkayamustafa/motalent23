@@ -9,8 +9,51 @@
    </INCLUDES>
    <FUNCTIONS>
     <item>
+     <FUNCNAME>ZOT_16_ALV_1_ON_ADDED_FUNCTION</FUNCNAME>
+     <SHORT_TEXT>ALV On ADDED</SHORT_TEXT>
+    </item>
+    <item>
      <FUNCNAME>ZOT_16_DO_MATH_OPS</FUNCNAME>
      <SHORT_TEXT>Maths Operations</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IV_NUMBER1</PARAMETER>
+       <TYP>I</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IV_NUMBER2</PARAMETER>
+       <TYP>I</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IV_LANG</PARAMETER>
+       <TYP>I</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>GV_RESULT</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>I</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IV_NUMBER1</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IV_NUMBER2</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IV_LANG</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>GV_RESULT</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+     </DOCUMENTATION>
     </item>
    </FUNCTIONS>
   </asx:values>

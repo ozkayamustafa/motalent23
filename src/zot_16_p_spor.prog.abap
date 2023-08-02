@@ -64,6 +64,7 @@ LOOP AT gt_term INTO DATA(ls_dbt).
 
 ENDLOOP.
 
+DO lines(  gt_dbteams ) TIMES.
 LOOP AT gt_dbteams INTO DATA(ls_dbteams).
   CALL FUNCTION 'QF05_RANDOM_INTEGER'
     EXPORTING
@@ -89,6 +90,7 @@ LOOP AT gt_dbteams INTO DATA(ls_dbteams).
   ENDIF.
 
 ENDLOOP.
+ENDDO.
 
 DO lines(  gt_dbteams ) TIMES.
 LOOP AT gt_dbteams INTO DATA(ls_dbteamss).
