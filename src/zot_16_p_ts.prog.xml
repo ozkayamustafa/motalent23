@@ -3,7 +3,7 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <PROGDIR>
-    <NAME>ZOT_16_P_OO_ALV</NAME>
+    <NAME>ZOT_16_P_TS</NAME>
     <SUBC>1</SUBC>
     <RLOAD>E</RLOAD>
     <FIXPT>X</FIXPT>
@@ -12,14 +12,14 @@
    <DYNPROS>
     <item>
      <HEADER>
-      <PROGRAM>ZOT_16_P_OO_ALV</PROGRAM>
+      <PROGRAM>ZOT_16_P_TS</PROGRAM>
       <SCREEN>0100</SCREEN>
       <LANGUAGE>E</LANGUAGE>
-      <DESCRIPT>OO ALV</DESCRIPT>
+      <DESCRIPT>Alv Screen</DESCRIPT>
       <TYPE>N</TYPE>
       <NEXTSCREEN>0100</NEXTSCREEN>
       <LINES>027</LINES>
-      <COLUMNS>120</COLUMNS>
+      <COLUMNS>121</COLUMNS>
      </HEADER>
      <CONTAINERS>
       <RPY_DYCATT>
@@ -28,7 +28,7 @@
       </RPY_DYCATT>
       <RPY_DYCATT>
        <TYPE>CUST_CTRL</TYPE>
-       <NAME>GC_CONT</NAME>
+       <NAME>GC_MAIN</NAME>
        <ELEMENT_OF>SCREEN</ELEMENT_OF>
        <LINE>001</LINE>
        <COLUMN>001</COLUMN>
@@ -56,7 +56,9 @@
       <RPY_DYFLOW>
        <LINE> MODULE STATUS_0100.</LINE>
       </RPY_DYFLOW>
-      <RPY_DYFLOW/>
+      <RPY_DYFLOW>
+       <LINE>*</LINE>
+      </RPY_DYFLOW>
       <RPY_DYFLOW>
        <LINE>PROCESS AFTER INPUT.</LINE>
       </RPY_DYFLOW>
@@ -89,6 +91,20 @@
       <FUN_TEXT>Back</FUN_TEXT>
      </RSMPE_FUNT>
      <RSMPE_FUNT>
+      <CODE>BACK</CODE>
+      <TEXTNO>002</TEXTNO>
+      <TEXT_TYPE>S</TEXT_TYPE>
+      <FUN_TEXT>Exit</FUN_TEXT>
+     </RSMPE_FUNT>
+     <RSMPE_FUNT>
+      <CODE>BACK</CODE>
+      <TEXTNO>003</TEXTNO>
+      <TEXT_TYPE>S</TEXT_TYPE>
+      <TEXT_NAME>ICON_CANCEL</TEXT_NAME>
+      <ICON_ID>@0W@</ICON_ID>
+      <FUN_TEXT>Cancel</FUN_TEXT>
+     </RSMPE_FUNT>
+     <RSMPE_FUNT>
       <CODE>SAVE</CODE>
       <TEXTNO>001</TEXTNO>
       <TEXT_TYPE>S</TEXT_TYPE>
@@ -109,6 +125,18 @@
       <PFNO>11</PFNO>
       <FUNCODE>SAVE</FUNCODE>
       <FUNNO>001</FUNNO>
+     </RSMPE_PFK>
+     <RSMPE_PFK>
+      <CODE>000001</CODE>
+      <PFNO>12</PFNO>
+      <FUNCODE>BACK</FUNCODE>
+      <FUNNO>003</FUNNO>
+     </RSMPE_PFK>
+     <RSMPE_PFK>
+      <CODE>000001</CODE>
+      <PFNO>15</PFNO>
+      <FUNCODE>BACK</FUNCODE>
+      <FUNNO>002</FUNNO>
      </RSMPE_PFK>
     </PFK>
     <SET>
@@ -145,15 +173,15 @@
     <TIT>
      <RSMPE_TITT>
       <CODE>0100</CODE>
-      <TEXT>OO ALV</TEXT>
+      <TEXT>Fatura Başlık ve Kalem Bilgi</TEXT>
      </RSMPE_TITT>
     </TIT>
    </CUA>
    <TPOOL>
     <item>
      <ID>R</ID>
-     <ENTRY>OO ALV Çalışması</ENTRY>
-     <LENGTH>16</LENGTH>
+     <ENTRY>OOP ALV SAS Rapor Oluşturma</ENTRY>
+     <LENGTH>27</LENGTH>
     </item>
    </TPOOL>
   </asx:values>

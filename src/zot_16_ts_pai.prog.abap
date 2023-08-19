@@ -1,5 +1,5 @@
 *&---------------------------------------------------------------------*
-*& Include          ZOT_16_I_PAI
+*& Include          ZOT_16_TS_PAI
 *&---------------------------------------------------------------------*
 *&---------------------------------------------------------------------*
 *&      Module  USER_COMMAND_0100  INPUT
@@ -7,11 +7,11 @@
 *       text
 *----------------------------------------------------------------------*
 MODULE user_command_0100 INPUT.
- CASE sy-ucomm.
- 	WHEN 'BACK'.
+  CASE sy-ucomm.
+    WHEN 'BACK' .
       LEAVE TO SCREEN 0.
- 	WHEN 'SAVE'.
-      PERFORM get_sum.
- 	WHEN OTHERS.
- ENDCASE.
+       WHEN 'SAVE' .
+         go_main->get_save( ).
+  ENDCASE.
+
 ENDMODULE.
