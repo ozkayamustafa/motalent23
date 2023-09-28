@@ -11,7 +11,15 @@ MODULE user_command_0100 INPUT.
     WHEN 'BACK' .
       LEAVE TO SCREEN 0.
        WHEN 'SAVE' .
-         go_main->get_save( ).
+
   ENDCASE.
+
+ENDMODULE.
+*&---------------------------------------------------------------------*
+*&      Module  USER_COMMAND_0101  INPUT
+*&---------------------------------------------------------------------*
+*       text
+*----------------------------------------------------------------------*
+MODULE user_command_0101 INPUT.
 
 ENDMODULE.

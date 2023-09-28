@@ -18,8 +18,8 @@
       <DESCRIPT>Alv Screen</DESCRIPT>
       <TYPE>N</TYPE>
       <NEXTSCREEN>0100</NEXTSCREEN>
-      <LINES>027</LINES>
-      <COLUMNS>121</COLUMNS>
+      <LINES>040</LINES>
+      <COLUMNS>252</COLUMNS>
      </HEADER>
      <CONTAINERS>
       <RPY_DYCATT>
@@ -32,8 +32,8 @@
        <ELEMENT_OF>SCREEN</ELEMENT_OF>
        <LINE>001</LINE>
        <COLUMN>001</COLUMN>
-       <LENGTH>120</LENGTH>
-       <HEIGHT>027</HEIGHT>
+       <LENGTH>252</LENGTH>
+       <HEIGHT>040</HEIGHT>
       </RPY_DYCATT>
      </CONTAINERS>
      <FIELDS>
@@ -179,9 +179,45 @@
    </CUA>
    <TPOOL>
     <item>
+     <ID>I</ID>
+     <KEY>010</KEY>
+     <ENTRY>Sas Rapor</ENTRY>
+     <LENGTH>19</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>011</KEY>
+     <ENTRY>Sas Oluştur</ENTRY>
+     <LENGTH>21</LENGTH>
+    </item>
+    <item>
      <ID>R</ID>
      <ENTRY>OOP ALV SAS Rapor Oluşturma</ENTRY>
      <LENGTH>27</LENGTH>
+    </item>
+    <item>
+     <ID>S</ID>
+     <KEY>S_DATE</KEY>
+     <ENTRY>Fatura Tarihi</ENTRY>
+     <LENGTH>21</LENGTH>
+    </item>
+    <item>
+     <ID>S</ID>
+     <KEY>S_NO</KEY>
+     <ENTRY>Fatura numarası</ENTRY>
+     <LENGTH>24</LENGTH>
+    </item>
+    <item>
+     <ID>S</ID>
+     <KEY>S_PAY</KEY>
+     <ENTRY>Ödeyen</ENTRY>
+     <LENGTH>14</LENGTH>
+    </item>
+    <item>
+     <ID>S</ID>
+     <KEY>S_TYPE</KEY>
+     <ENTRY>Faturalama Türü</ENTRY>
+     <LENGTH>23</LENGTH>
     </item>
    </TPOOL>
   </asx:values>

@@ -3,21 +3,20 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <DD04V>
-    <ROLLNAME>ZOT_16_E_COCUK_SAYISI</ROLLNAME>
+    <ROLLNAME>ZOT_16_E_LAND</ROLLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
+    <DOMNAME>LAND1</DOMNAME>
     <HEADLEN>55</HEADLEN>
     <SCRLEN1>10</SCRLEN1>
     <SCRLEN2>20</SCRLEN2>
     <SCRLEN3>40</SCRLEN3>
-    <DDTEXT>Personel Master Çocuk Sayısı</DDTEXT>
-    <REPTEXT>Çocuk Sayısı</REPTEXT>
-    <SCRTEXT_S>Çocuk.Sayı</SCRTEXT_S>
-    <SCRTEXT_M>Çocuk Sayısı</SCRTEXT_M>
-    <SCRTEXT_L>Çocuk Sayısı</SCRTEXT_L>
+    <DDTEXT>land1 data element</DDTEXT>
+    <REPTEXT>Uyruk</REPTEXT>
+    <SCRTEXT_S>Uyruk</SCRTEXT_S>
+    <SCRTEXT_M>Uyruk</SCRTEXT_M>
+    <SCRTEXT_L>Uyruk</SCRTEXT_L>
     <DTELMASTER>E</DTELMASTER>
-    <DATATYPE>INT4</DATATYPE>
-    <LENG>000010</LENG>
-    <OUTPUTLEN>000011</OUTPUTLEN>
+    <REFKIND>D</REFKIND>
    </DD04V>
   </asx:values>
  </asx:abap>

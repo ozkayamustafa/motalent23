@@ -3,7 +3,7 @@
 *&---------------------------------------------------------------------*
 
 TABLES: vbrp.
-
+TYPE-POOLS: esp1.
 *TYPES: BEGIN OF gty_tables,
 *         vbeln  TYPE vbrk-vbeln,
 *         bukrs  TYPE vbrk-bukrs,

@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>Web Service Fonksiyon Group</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZOT_16_FG_WEB_SERVICETOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZOT_16_FG_WEB_SERVICE</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>ZOT_16_FM_WEB_SERVICE_CITY</FUNCNAME>
+     <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>Şehir RFC</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>CITY_ID</PARAMETER>
+       <TYP>ZOT_16_E_CITY_ID</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>CITY_NAME</PARAMETER>
+       <TYP>ZOT_16_E_CITY_NAME</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>EV_SUCCES</PARAMETER>
+       <TYP>XFELD</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>EV_MESSAGE</PARAMETER>
+       <TYP>BAPI_MSG</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>CITY_ID</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Şehir ID</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CITY_NAME</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Şehir Name</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>EV_SUCCES</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Checkbox</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>EV_MESSAGE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Message Text</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

@@ -1,0 +1,11 @@
+@EndUserText.label: 'Access Control Kullanımı'
+@MappingRole: true
+define role ZOT_16_ACCESS_CONTROL {
+    grant
+        select
+            on
+                zot_16_ddl_associations   // Hangi CDS vermek istiyorsak CDS yazıyoruz buraya 
+                    where
+                        matnr = 'ST' ;
+                        
+}

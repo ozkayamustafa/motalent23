@@ -11,3 +11,12 @@ MODULE status_0100 OUTPUT.
  SET TITLEBAR '0100'.
  go_main->init0100( ).
 ENDMODULE.
+*&---------------------------------------------------------------------*
+*& Module STATUS_0101 OUTPUT
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+MODULE status_0101 OUTPUT.
+* SET PF-STATUS 'xxxxxxxx'.
+* SET TITLEBAR 'xxx'.
+ENDMODULE.

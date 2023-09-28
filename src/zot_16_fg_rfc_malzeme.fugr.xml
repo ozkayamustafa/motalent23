@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>Malzeme Bilgisinin RFC FG</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZOT_16_FG_RFC_MALZEMETOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZOT_16_FG_RFC_MALZEME</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>ZOT_16_FM_RFC_MALZEME</FUNCNAME>
+     <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>Malzeme Bilgisi RFC Modül</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>MATNR</PARAMETER>
+       <TYP>MARA-MATNR</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>EV_MATERIAL_INFO</PARAMETER>
+       <TYP>ZOT_16_S_MATERIAL_INFO</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>EV_MATERIAL_MARD</PARAMETER>
+       <TYP>ZOT_16_TT_MB_MARD</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>EV_MATERIAL_RESULT</PARAMETER>
+       <TYP>ZOT_16_S_MATERIAL_RESULT</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>MATNR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Material Number</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>EV_MATERIAL_INFO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Malzeme Bilgileri</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>EV_MATERIAL_MARD</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Malzemelerin Depo ve Üretim Tablosu</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>EV_MATERIAL_RESULT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Servis Dönüş Parametreleri</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>
